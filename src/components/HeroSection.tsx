@@ -1,11 +1,18 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
+
 const HeroSection = () => {
   const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* 3D Robot Background */}
-      <InteractiveRobotSpline scene={ROBOT_SCENE_URL} className="absolute inset-0 z-0" />
+      <InteractiveRobotSpline
+        scene={ROBOT_SCENE_URL}
+        className="absolute inset-0 z-0" 
+      />
 
       {/* Fallback gradient background */}
       <div className="absolute inset-0 z-5 bg-gradient-dark opacity-80"></div>
@@ -14,9 +21,9 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-5">
         <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{
-        animationDelay: '2s'
-      }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-secondary/5 rounded-full blur-3xl"></div>
+          animationDelay: '2s'
+        }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center pointer-events-none">
@@ -58,6 +65,8 @@ const HeroSection = () => {
           
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
