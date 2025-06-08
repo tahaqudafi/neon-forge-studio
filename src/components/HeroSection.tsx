@@ -14,6 +14,9 @@ const HeroSection = () => {
         className="absolute inset-0 z-0" 
       />
 
+      {/* Fallback gradient background */}
+      <div className="absolute inset-0 z-5 bg-gradient-dark opacity-80"></div>
+
       {/* Original Background Effects - now with lower z-index */}
       <div className="absolute inset-0 z-5">
         <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
