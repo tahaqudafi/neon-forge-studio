@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Calendar, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -164,37 +163,41 @@ const ContactSection = () => {
                         placeholder="Your company name"
                       />
                     </div>
-                    <div className="space-y-2 relative">
+                    <div className="space-y-2">
                       <Label htmlFor="project">Project Type</Label>
-                      <Select onValueChange={(value) => handleInputChange("project", value)}>
-                        <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary/50">
-                          <SelectValue placeholder="Select project type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="website">Website Design</SelectItem>
-                          <SelectItem value="app">Mobile App (currently unavailable)</SelectItem>
-                          <SelectItem value="saas">SaaS Platform</SelectItem>
-                          <SelectItem value="integration">Business Integration</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <select
+                        id="project"
+                        value={formData.project}
+                        onChange={(e) => handleInputChange("project", e.target.value)}
+                        className="flex h-10 w-full rounded-md border border-border/50 bg-background/50 px-3 py-2 text-sm ring-offset-background focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
+                        required
+                      >
+                        <option value="">Select project type</option>
+                        <option value="website">Website Design</option>
+                        <option value="app">Mobile App (currently unavailable)</option>
+                        <option value="saas">SaaS Platform</option>
+                        <option value="integration">Business Integration</option>
+                        <option value="other">Other</option>
+                      </select>
                     </div>
                   </div>
 
-                  <div className="space-y-2 relative">
+                  <div className="space-y-2">
                     <Label htmlFor="budget">Budget Range</Label>
-                    <Select onValueChange={(value) => handleInputChange("budget", value)}>
-                      <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary/50">
-                        <SelectValue placeholder="Select budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1k-5k">$1,000 - $5,000</SelectItem>
-                        <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                        <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                        <SelectItem value="25k+">$25,000+</SelectItem> 
-                        <SelectItem value="discuss">Let's discuss</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <select
+                      id="budget"
+                      value={formData.budget}
+                      onChange={(e) => handleInputChange("budget", e.target.value)}
+                      className="flex h-10 w-full rounded-md border border-border/50 bg-background/50 px-3 py-2 text-sm ring-offset-background focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
+                      required
+                    >
+                      <option value="">Select budget range</option>
+                      <option value="1k-5k">$1,000 - $5,000</option>
+                      <option value="5k-10k">$5,000 - $10,000</option>
+                      <option value="10k-25k">$10,000 - $25,000</option>
+                      <option value="25k+">$25,000+</option>
+                      <option value="discuss">Let's discuss</option>
+                    </select>
                   </div>
 
                   <div className="space-y-2">
