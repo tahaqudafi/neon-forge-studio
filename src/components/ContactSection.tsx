@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -25,7 +26,7 @@ const ContactSection = () => {
     setIsSubmitted(true);
     toast({
       title: "Message sent!",
-      description: "Thank you for your inquiry. I'll get back to you within 24 hours.",
+      description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
     });
     
     // Reset form after a delay
@@ -57,7 +58,7 @@ const ContactSection = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4">Message Sent!</h3>
               <p className="text-muted-foreground">
-                Thank you for reaching out. I'll review your project details and get back to you within 24 hours.
+                Thank you for reaching out. We'll review your project details and get back to you within 24 hours.
               </p>
             </Card>
           </div>
@@ -80,7 +81,7 @@ const ContactSection = () => {
             Let's <span className="gradient-text">Build Together</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your idea into reality? Tell me about your project and let's create something amazing.
+            Ready to transform your idea into reality? Tell us about your project and let's create something amazing.
           </p>
         </div>
 
@@ -124,7 +125,7 @@ const ContactSection = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="p-8 bg-card/30 border-primary/20 backdrop-blur-sm">
+              <Card className="p-8 bg-card/30 border-primary/20 backdrop-blur-sm relative">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -163,13 +164,13 @@ const ContactSection = () => {
                         placeholder="Your company name"
                       />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 relative">
                       <Label htmlFor="project">Project Type</Label>
                       <Select onValueChange={(value) => handleInputChange("project", value)}>
                         <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary/50">
                           <SelectValue placeholder="Select project type" />
                         </SelectTrigger>
-                        <SelectContent position="popper" className="z-50">
+                        <SelectContent>
                           <SelectItem value="website">Website Design</SelectItem>
                           <SelectItem value="app">Mobile App (currently unavailable)</SelectItem>
                           <SelectItem value="saas">SaaS Platform</SelectItem>
@@ -180,13 +181,13 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 relative">
                     <Label htmlFor="budget">Budget Range</Label>
                     <Select onValueChange={(value) => handleInputChange("budget", value)}>
                       <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary/50">
                         <SelectValue placeholder="Select budget range" />
                       </SelectTrigger>
-                      <SelectContent position="popper" className="z-50">
+                      <SelectContent>
                         <SelectItem value="1k-5k">$1,000 - $5,000</SelectItem>
                         <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
                         <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
@@ -203,7 +204,7 @@ const ContactSection = () => {
                       value={formData.message}
                       onChange={(e) => handleInputChange("message", e.target.value)}
                       className="bg-background/50 border-border/50 focus:border-primary/50 transition-colors min-h-[120px]"
-                      placeholder="Tell me about your project, goals, timeline, and any specific requirements..."
+                      placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
                       required
                     />
                   </div>

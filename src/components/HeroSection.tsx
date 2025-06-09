@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
@@ -14,10 +15,10 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Robot Background */}
+      {/* 3D Robot Background - Made larger */}
       <InteractiveRobotSpline
         scene={ROBOT_SCENE_URL}
-        className="absolute inset-0 z-0" 
+        className="absolute inset-0 z-0 scale-125 md:scale-150" 
       />
 
       {/* Fallback gradient background */}
