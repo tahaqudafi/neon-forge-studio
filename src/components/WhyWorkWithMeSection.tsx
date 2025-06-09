@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Zap, Shield, Rocket, Users } from "lucide-react";
 
@@ -27,7 +26,7 @@ const benefits = [
 
 const WhyWorkWithMeSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+    <section id="why-work-with-us" className="py-16 md:py-24 bg-background relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-accent/5 rounded-full blur-3xl"></div>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
@@ -21,6 +20,14 @@ const MobileCTA = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsExpanded(false);
+  };
+
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' });
     }
     setIsExpanded(false);
   };
@@ -55,6 +62,7 @@ const MobileCTA = () => {
             <Button 
               variant="outline" 
               className="w-full border-primary/30 hover:border-primary/60 hover:bg-primary/10 text-sm py-2 interactive-element"
+              onClick={scrollToPortfolio}
             >
               View Portfolio
             </Button>

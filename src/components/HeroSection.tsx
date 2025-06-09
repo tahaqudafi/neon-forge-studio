@@ -1,10 +1,16 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 
 const HeroSection = () => {
   const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -50,11 +56,20 @@ const HeroSection = () => {
 
           {/* CTA Button */}
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pointer-events-auto px-2">
-            <Button size="lg" className="group relative px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold bg-gradient-primary hover:scale-105 transition-all duration-300 animate-pulse-glow w-full sm:w-auto interactive-element">
+            <Button 
+              size="lg" 
+              className="group relative px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold bg-gradient-primary hover:scale-105 transition-all duration-300 animate-pulse-glow w-full sm:w-auto interactive-element"
+              onClick={() => scrollToSection('why-work-with-us')}
+            >
               Let's Build Together
               <ArrowRight className="ml-2 w-4 md:w-5 h-4 md:h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-medium border-primary/30 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto interactive-element">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-medium border-primary/30 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto interactive-element"
+              onClick={() => scrollToSection('portfolio')}
+            >
               View Portfolio
             </Button>
           </div>

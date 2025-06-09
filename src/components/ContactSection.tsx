@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -118,7 +117,7 @@ const ContactSection = () => {
                   Discuss your project in detail and explore possibilities.
                 </p>
                 <Button variant="outline" className="w-full border-primary/30 hover:border-primary/60 hover:bg-primary/10">
-                  Book a Call
+                  Book a Call (currently unavailable)
                 </Button>
               </Card>
             </div>
@@ -170,9 +169,9 @@ const ContactSection = () => {
                         <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary/50">
                           <SelectValue placeholder="Select project type" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent position="popper" className="z-50">
                           <SelectItem value="website">Website Design</SelectItem>
-                          <SelectItem value="app">Mobile App</SelectItem>
+                          <SelectItem value="app">Mobile App (currently unavailable)</SelectItem>
                           <SelectItem value="saas">SaaS Platform</SelectItem>
                           <SelectItem value="integration">Business Integration</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
@@ -187,11 +186,11 @@ const ContactSection = () => {
                       <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary/50">
                         <SelectValue placeholder="Select budget range" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent position="popper" className="z-50">
+                        <SelectItem value="1k-5k">$1,000 - $5,000</SelectItem>
                         <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
                         <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                        <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                        <SelectItem value="50k+">$50,000+</SelectItem>
+                        <SelectItem value="25k+">$25,000+</SelectItem> 
                         <SelectItem value="discuss">Let's discuss</SelectItem>
                       </SelectContent>
                     </Select>

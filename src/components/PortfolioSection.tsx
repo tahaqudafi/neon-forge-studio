@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,7 +6,7 @@ import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 const portfolioItems = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "E-Commerce Platform for job hunting",
     category: "SaaS Product",
     description: "Modern e-commerce solution with AI-powered recommendations and real-time analytics.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
@@ -15,25 +14,17 @@ const portfolioItems = [
   },
   {
     id: 2,
-    title: "Financial Dashboard",
+    title: "Housing Property Management System",
     category: "Web Application",
-    description: "Real-time financial tracking dashboard with advanced data visualization.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    description: "Housing Property Management System with advanced data visualization.",
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=600&fit=crop",
     tech: ["Vue.js", "D3.js", "Python", "PostgreSQL"]
   },
   {
-    id: 3,
-    title: "Mobile Fitness App",
-    category: "Mobile App",
-    description: "Cross-platform fitness tracking app with social features and AI coaching.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-    tech: ["React Native", "Firebase", "Machine Learning"]
-  },
-  {
     id: 4,
-    title: "Project Management Tool",
+    title: "Google Conversion Funnel Review",
     category: "Business Integration",
-    description: "Custom project management solution integrating with existing business tools.",
+    description: "Google Reviews funnel with advanced data visualization.",
     image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
     tech: ["Next.js", "GraphQL", "Prisma", "Slack API"]
   }
@@ -53,7 +44,7 @@ const PortfolioSection = () => {
   const currentItem = portfolioItems[currentIndex];
 
   return (
-    <section className="py-24 bg-gradient-dark relative overflow-hidden">
+    <section id="portfolio" className="py-24 bg-gradient-dark relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float"></div>
