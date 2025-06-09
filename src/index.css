@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -64,6 +63,41 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Style select dropdown options to match the site theme */
+  select option {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.5rem 1rem;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  /* Subtle fade-in animation for dropdown options */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Stagger the animation for each option */
+  select option:nth-child(1) { animation-delay: 0.05s; }
+  select option:nth-child(2) { animation-delay: 0.1s; }
+  select option:nth-child(3) { animation-delay: 0.15s; }
+  select option:nth-child(4) { animation-delay: 0.2s; }
+  select option:nth-child(5) { animation-delay: 0.25s; }
+  select option:nth-child(6) { animation-delay: 0.3s; }
+
+  select option:hover,
+  select option:focus,
+  select option:checked {
+    background-color: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+  }
+
+  select:focus {
+    box-shadow: 0 0 0 2px hsla(var(--background), 1), 0 0 0 4px hsla(var(--primary), 0.3);
   }
 
   /* Fix hover quality and mobile optimization */

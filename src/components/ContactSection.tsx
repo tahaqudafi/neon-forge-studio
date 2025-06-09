@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Calendar, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { ChevronDown } from "lucide-react";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -117,14 +117,14 @@ const ContactSection = () => {
                   Discuss your project in detail and explore possibilities.
                 </p>
                 <Button variant="outline" className="w-full border-primary/30 hover:border-primary/60 hover:bg-primary/10">
-                  Book a Call (currently unavailable)
+                  Currently unavailable
                 </Button>
               </Card>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="p-8 bg-card/30 border-primary/20 backdrop-blur-sm relative">
+              <Card className="p-6 md:p-8 bg-card/30 border-primary/20 backdrop-blur-sm">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -134,7 +134,7 @@ const ContactSection = () => {
                         value={formData.name}
                         onChange={(e) => handleInputChange("name", e.target.value)}
                         className="bg-background/50 border-border/50 focus:border-primary/50 transition-colors"
-                        placeholder="Your full name"
+                        placeholder="Your name"
                         required
                       />
                     </div>
@@ -165,39 +165,51 @@ const ContactSection = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="project">Project Type</Label>
-                      <select
-                        id="project"
-                        value={formData.project}
-                        onChange={(e) => handleInputChange("project", e.target.value)}
-                        className="flex h-10 w-full rounded-md border border-border/50 bg-background/50 px-3 py-2 text-sm ring-offset-background focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
-                        required
-                      >
-                        <option value="">Select project type</option>
-                        <option value="website">Website Design</option>
-                        <option value="app">Mobile App (currently unavailable)</option>
-                        <option value="saas">SaaS Platform</option>
-                        <option value="integration">Business Integration</option>
-                        <option value="other">Other</option>
-                      </select>
+                      <div className="relative group">
+                        <select
+                          id="project"
+                          value={formData.project}
+                          onChange={(e) => handleInputChange("project", e.target.value)}
+                          className="flex h-10 w-full rounded-md border border-border/50 bg-background/50 px-3 py-2 text-sm appearance-none cursor-pointer ring-offset-background transition-colors focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:border-primary/40 hover:bg-card/50 backdrop-blur-sm"
+                          required
+                        >
+                          <option value="">Select project type</option>
+                          <option value="website">Website Design</option>
+                          <option value="app">Mobile App (currently unavailable)</option>
+                          <option value="saas">SaaS Platform</option>
+                          <option value="integration">Business Integration</option>
+                          <option value="other">Other</option>
+                        </select>
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                          <ChevronDown className="h-4 w-4 text-primary transition-transform duration-300 group-focus-within:rotate-180" />
+                        </div>
+                        <div className="absolute inset-0 rounded-md bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none"></div>
+                      </div>
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="budget">Budget Range</Label>
-                    <select
-                      id="budget"
-                      value={formData.budget}
-                      onChange={(e) => handleInputChange("budget", e.target.value)}
-                      className="flex h-10 w-full rounded-md border border-border/50 bg-background/50 px-3 py-2 text-sm ring-offset-background focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
-                      required
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="1k-5k">$1,000 - $5,000</option>
-                      <option value="5k-10k">$5,000 - $10,000</option>
-                      <option value="10k-25k">$10,000 - $25,000</option>
-                      <option value="25k+">$25,000+</option>
-                      <option value="discuss">Let's discuss</option>
-                    </select>
+                    <div className="relative group">
+                      <select
+                        id="budget"
+                        value={formData.budget}
+                        onChange={(e) => handleInputChange("budget", e.target.value)}
+                        className="flex h-10 w-full rounded-md border border-border/50 bg-background/50 px-3 py-2 text-sm appearance-none cursor-pointer ring-offset-background transition-colors focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:border-primary/40 hover:bg-card/50 backdrop-blur-sm"
+                        required
+                      >
+                        <option value="">Select budget range</option>
+                        <option value="1k-5k">$1,000 - $5,000</option>
+                        <option value="5k-10k">$5,000 - $10,000</option>
+                        <option value="10k-25k">$10,000 - $25,000</option>
+                        <option value="25k+">$25,000+</option>
+                        <option value="discuss">Let's discuss</option>
+                      </select>
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <ChevronDown className="h-4 w-4 text-primary transition-transform duration-300 group-focus-within:rotate-180" />
+                      </div>
+                      <div className="absolute inset-0 rounded-md bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none"></div>
+                    </div>
                   </div>
 
                   <div className="space-y-2">
