@@ -50,11 +50,61 @@
 
   * {
     @apply border-border;
+    /* Fix hover quality issues */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   body {
     @apply bg-background text-foreground font-inter;
     font-family: 'Inter', sans-serif;
+    /* Improve rendering quality */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Fix hover quality and mobile optimization */
+  button, a, [role="button"], .interactive-element {
+    /* Prevent quality degradation on hover/touch */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    
+    /* Optimize for touch devices */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Ensure smooth transitions don't cause quality issues */
+  .group:hover *,
+  .group:focus * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    /* Disable hover effects on mobile, use active instead */
+    .hover\:scale-105:hover {
+      transform: none;
+    }
+    
+    .hover\:scale-105:active {
+      transform: scale(0.98);
+    }
+    
+    .hover\:bg-card\/50:hover {
+      background-color: inherit;
+    }
+    
+    .hover\:bg-card\/50:active {
+      background-color: hsl(var(--card) / 0.5);
+    }
   }
 
   /* Custom gradient classes */
@@ -80,18 +130,24 @@
 
   /* Floating animation */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) translateZ(0); }
+    50% { transform: translateY(-10px) translateZ(0); }
   }
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
-  /* Pulse glow effect */
+  /* Pulse glow effect - optimized for quality */
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px hsla(270, 91%, 65%, 0.3); }
-    50% { box-shadow: 0 0 40px hsla(270, 91%, 65%, 0.6); }
+    0%, 100% { 
+      box-shadow: 0 0 20px hsla(270, 91%, 65%, 0.3);
+      transform: translateZ(0);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsla(270, 91%, 65%, 0.6);
+      transform: translateZ(0);
+    }
   }
 
   .animate-pulse-glow {
